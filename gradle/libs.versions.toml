@@ -1,4 +1,9 @@
 [versions]
+compileSdkVersion = "34"
+minSdkVersion = "31"
+versionCode = "1"
+versionName = "1.0.0"
+
 agp = "8.4.1"
 kotlin = "2.0.0"
 coreKtx = "1.13.1"
@@ -7,14 +12,21 @@ junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.8.1"
 activityCompose = "1.9.0"
+composeCompiler = "1.5.14"
 composeBom = "2024.05.00"
 ksp = "2.0.0-1.0.21"
 hilt = "2.51.1"
 hiltComposeNavigation = "1.2.0"
 timber = "5.0.1"
+navigationCommonKtx = "2.7.7"
+navigationCompose = "2.7.7"
+lifecycleViewmodelAndroid = "2.8.1"
+firebase = "32.8.1"
+googleServices = "4.3.15"
 
 [libraries]
-compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+compose-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -30,6 +42,11 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigationCommonKtx" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics-android" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts" }
 
 androidx-hilt-compose-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltComposeNavigation" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
@@ -37,11 +54,20 @@ hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", ve
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+google-services-plugin = { module = "com.google.gms:google-services", version.ref = "googleServices" }
+
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }

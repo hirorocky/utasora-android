@@ -4,18 +4,19 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    id(libs.plugins.google.services.get().pluginId)
 }
 
 android {
     namespace = "io.github.hirorocky.utasora"
-    compileSdk = 34
+    compileSdk = libs.versions.compileSdkVersion.get().toInt()
 
     defaultConfig {
         applicationId = "io.github.hirorocky.utasora"
-        minSdk = 31
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = libs.versions.minSdkVersion.get().toInt()
+        targetSdk = libs.versions.compileSdkVersion.get().toInt()
+        versionCode = libs.versions.versionCode.get().toInt()
+        versionName = libs.versions.versionName.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -47,7 +48,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     packaging {
         resources {
@@ -58,6 +59,16 @@ android {
 
 dependencies {
     // Module
+    implementation(projects.navigation)
+    implementation(projects.theme)
+    implementation(projects.feature.introspection)
+    implementation(projects.feature.phrases)
+    implementation(projects.feature.poems)
+    implementation(projects.feature.settings)
+    implementation(projects.feature.signin)
+    implementation(projects.feature.signup)
+    implementation(projects.feature.splash)
+    implementation(projects.feature.title)
 
     // Hilt
     implementation(libs.hilt.android)
@@ -73,6 +84,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.compose.material.icons.extended)
 
     // Development
     implementation(libs.timber)
